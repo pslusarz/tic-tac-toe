@@ -1,8 +1,9 @@
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,7 +26,8 @@ public class TicTacToeTest {
         TicTacToeGame game = new TicTacToeGame();
         game.play(1);
         assertNotNull(game.getX());
-        //assertEquals(1, game.getX().size());
+        assertEquals(1, game.getX().size());
+        assertEquals(1, game.getX().get(0));
     }
 
 }

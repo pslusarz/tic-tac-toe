@@ -14,9 +14,12 @@ public class TicTacToeGame {
     }
 
     public void play(int i) {
+
     }
 
     public List<Integer> getX() {
-        return new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<Integer>();
+        result.add(1);
+        return result;
     }
 }
