@@ -30,4 +30,33 @@ public class TicTacToeTest {
         assertEquals(1, game.getX().get(0));
     }
 
+    @Test
+    public void testRemembersFirstMoveTriangulate() {
+        TicTacToeGame game = new TicTacToeGame();
+        game.play(2);
+        assertNotNull(game.getX());
+        assertEquals(1, game.getX().size());
+        assertEquals(2, game.getX().get(0));
+    }
+
+    @Test
+    public void testOpponentMoves() {
+        TicTacToeGame game = new TicTacToeGame();
+        game.play(1);
+        game.playO();
+        assertNotNull(game.getO());
+        assertEquals(1, game.getO().size());
+        assertEquals(2, game.getO().get(0));
+    }
+
+    @Test
+    public void testRememberSecondMove() {
+        TicTacToeGame game = new TicTacToeGame();
+        game.play(1);
+        game.playO();
+        game.play(3);
+        assertEquals(2, game.getX().size());
+        assertEquals(3, game.getX().get(1));
+    }
+
 }
