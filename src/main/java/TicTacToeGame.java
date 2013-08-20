@@ -1,21 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: ps
- * Date: 8/19/13
- * Time: 10:30 PM
- * To change this template use File | Settings | File Templates.
- */
 public class TicTacToeGame {
     private List<Integer> moveXs = new ArrayList<Integer>();
-    int moveO;
+    private List<Integer> moveOs = new ArrayList<Integer>();
     public boolean isLegalMove(int i) {
         return true;
     }
 
-    public void play(int i) {
+    public void playX(int i) {
         moveXs.add(i);
     }
 
@@ -26,12 +19,12 @@ public class TicTacToeGame {
     }
 
     public void playO() {
-        moveO = 2;
+        moveOs.add(2);
     }
 
     public List<Integer> getO() {
         List<Integer> result = new ArrayList<Integer>();
-        result.add(moveO);
+        result.addAll(moveOs);
         return result;
     }
 }
