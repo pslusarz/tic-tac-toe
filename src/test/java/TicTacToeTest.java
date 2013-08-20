@@ -1,8 +1,10 @@
+import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
@@ -53,6 +55,20 @@ public class TicTacToeTest {
         assertEquals(2, game.getX().size());
         assertEquals(3, game.getX().get(1));
     }
+
+    @Test
+    public void testXcannotMoveOnX() {
+        game.playX(1);
+        game.playO();
+        assertFalse(game.isLegalMove(1));
+    }
+    @Test
+    public void testXcannotMoveOnY() {
+        game.playX(1);
+        game.playO();
+        assertFalse(game.isLegalMove(game.getO().get(0)));
+    }
+
     @Test
     public void testRememberSecondYMove() {
         game.playX(1);
@@ -60,7 +76,22 @@ public class TicTacToeTest {
         game.playX(3);
         game.playO();
         assertEquals(2, game.getO().size());
-        //assertEquals(4, game.getO().get(1));
+        assertEquals(4, game.getO().get(1));
     }
+    @Test
+    public void testRecognizeAFinishedGame() {
+        game.playX(1);
+        game.playO();
+        game.playX(4);
+        game.playO();
+        assertFalse(game.isFinished());
+        game.playX(7);
+
+        assertTrue(game.isFinished());
+        //assertTrue(game.xWon());
+
+    }
+
+
 
 }
